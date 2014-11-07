@@ -1,0 +1,17 @@
+<div class="container">
+    <h3><%= @survey.title %></h3>
+  <ul>
+    <% @question.each do |question| %>
+    <%= question.content %>
+    <br></br>
+    <% @answer.each do |answer| %>
+    <%= answer.content %> #button something thing
+
+     <% end %>
+  </ul>
+</div>
+
+   <!--  <form id = "questionresponse">
+    <label for "questionanswer">Response: </label>
+    <textarea name= "questionanswer" rows="2" cols="50" placeholder = "Input your answer here"></textarea>
+    </form> -->
