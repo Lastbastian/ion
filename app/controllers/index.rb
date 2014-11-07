@@ -1,17 +1,21 @@
-get '/' do
-@surveys = Survey.all
-
-erb :index
+get '/session-viewer' do
+  session.inspect
 end
 
+get '/' do
+  @surveys = Survey.all
 
-get '/surveys/new' do
+  erb :index
+end
+
+get '/create_survey' do
 
   erb :create_survey
 end
 
 post '/surveys/:id/edit' do
   @questions = SurveyQuestion.create(params[:survey_question])
+<<<<<<< HEAD
   p params
   # @survey_question_id = params[:survey_choice][:survey_question_id]
 
@@ -20,15 +24,20 @@ post '/surveys/:id/edit' do
   SurveyChoice.create(content: params[:survey_choice2][:content], survey_question_id: "#{@survey_question_id}")
   SurveyChoice.create(content: params[:survey_choice3][:content], survey_question_id: "#{@survey_question_id}")
   SurveyChoice.create(content: params[:survey_choice4][:content], survey_question_id: "#{@survey_question_id}")
-  
+
   p "***********"
 
   redirect '/take_survey/:id'
+=======
+  redirect '/'
+
+>>>>>>> 93c847142f545e7ab3ed5734941f83123b5e8ca0
 end
 
 post '/surveys' do
   @survey = Survey.create(params[:survey])
   redirect "/surveys/#{@survey.id}/edit"
+
 end
 
 get '/surveys/:id/edit' do
@@ -38,10 +47,10 @@ get '/surveys/:id/edit' do
 end
 
 get '/surveys/:id/result' do
-  @survey_result = Survey.find(params[:id])
-  @survey_answer = SurveyAnswer(params[:survey_question])
+  @result = Survey.find(params[:id])
+  @answer = SurveyAnswer.where(:question_id, params[:survey_question])
 
-  erb :results_survey.erb
+  erb :results_survey
 end
 
 post '/surveys/:id/possible_choices' do
@@ -55,27 +64,13 @@ post '/surveys/:id/possible_choices' do
   redirect "/surveys/#{@survey_id}/edit"
 end
 
-
-
-
-
 get '/take_survey/:id' do
   @survey = Survey.find(params[:id])
-  @question = SurveyQuestion.find(:all, params[:survey_id])
+  @question = SurveyQuestion.where(:survey_id => @survey)
+  @answer = SurveyAnwser.where(:question_id => @question)
 
   erb :take_survey
 end
-
-
-
-
-post '/take_survey/:id' do
-
-end
-
-
-
-
 
 
 get '/create_survey' do
@@ -85,11 +80,6 @@ end
 
 
 
-post '/create_survey/:id' do
-
-
-redirect '/'
-end
 
   # @survey = Survey.new(params[:survey])
   # if @survey.save
@@ -103,9 +93,6 @@ end
   # else
   #   erb :create_survey
   # end
-
-
-
 get '/user/sign_up' do
   erb :sign_up
 end
@@ -133,3 +120,5 @@ get '/logout' do
   session[:user_id] = nil
   redirect '/'
 end
+
+
