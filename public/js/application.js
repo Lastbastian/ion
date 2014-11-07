@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
     $('#create_question').on('submit', function(e){
     e.preventDefault()
     console.log("question form")
@@ -18,17 +17,6 @@ $(document).ready(function() {
       console.log("fail")
     })
   })
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -51,11 +39,6 @@ $(document).ready(function() {
             }, 2000);
         }
     });
-});
-
-
-
-
 });
 
 
