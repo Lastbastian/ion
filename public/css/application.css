@@ -1,0 +1,18 @@
+body {
+  background-color: #3f2860;
+
+}
+
+.container {
+  background-color: white;
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 2px solid;
+  border-color: #ef6d3b;
+  border-radius: 6px;
+}
+
+th {
+  text-align: left;
+}
