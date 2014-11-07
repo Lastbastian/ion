@@ -16,3 +16,13 @@ body {
 th {
   text-align: left;
 }
+
+.take_survey {
+	background-color: white;
+	margin: 15px auto;
+	width: 60%;
+	padding: 5%;
+	border: 2px solid;
+	border-color: black;
+	border-radius: 5px;
+}

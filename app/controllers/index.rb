@@ -24,34 +24,17 @@ get '/surveys/:id/edit' do
   erb :edit_survey
 end
 
-
-
 get '/take_survey/:id' do
-
+  @survey = Survey.find(params[:id])
+  @question = SurveyQuestion.find(:all, params[:survey_id])
+  erb :take_survey
 end
-
-
-
 
 post '/take_survey/:id' do
 
 end
 
-
-
-
-
-
-get '/create_survey' do
-
-erb :create_survey
-end
-
-
-
-
 post '/create_survey/:id' do
-
 
 redirect '/'
 end
