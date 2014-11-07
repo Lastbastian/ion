@@ -26,6 +26,7 @@ end
 
 
 
+
 get '/take_survey/:id' do
 
 end
@@ -68,3 +69,14 @@ end
   # else
   #   erb :create_survey
   # end
+
+
+
+get '/user/sign_up' do
+  erb :sign_up
+end
+
+post '/user/sign_up' do
+  User.create(params[:user])
+  redirect '/'
+end
