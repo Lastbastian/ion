@@ -41,7 +41,7 @@ end
 get '/take_survey/:id' do
   @survey = Survey.find(params[:id])
   @question = SurveyQuestion.where(:survey_id => @survey)
-  @answer = SurveyAnwser.where(:question_id => @question)
+  @answer = SurveyAnswer.where(:question_id => @question)
 
   erb :take_survey
 
