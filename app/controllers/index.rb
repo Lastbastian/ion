@@ -6,6 +6,7 @@ end
 
 
 get '/surveys/new' do
+
   erb :create_survey
 end
 
@@ -21,7 +22,15 @@ end
 
 get '/surveys/:id/edit' do
   @survey = Survey.find(params[:id])
+
   erb :edit_survey
+end
+
+get '/surveys/:id/result' do
+  @survey_result = Survey.find(params[:id])
+  @survey_answer = SurveyAnswer(params[:survey_question])
+
+  erb :results_survey.erb
 end
 
 
