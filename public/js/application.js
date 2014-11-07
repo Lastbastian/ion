@@ -4,4 +4,17 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+$("#new_possible_option").on('click', function() {
+    $('.text_cell').show();
+
+    });
+
+    $(document).on('click', '.submit', function(event){
+      event.preventDefault();
+      $content = $('survey_choice[name=content]').val()
+      $('.option_holder').append('<li> <span class = "option">' + $content + '<span> </li>');
+  });
+
+
 });
