@@ -15,6 +15,8 @@ gem 'rake'
 
 gem 'shotgun'
 
+gem 'bcrypt'
+
 group :test, :development do
   gem 'factory_girl'
   gem 'faker'
