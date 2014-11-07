@@ -1,14 +1,13 @@
 <div class="container">
     <h3><%= @survey.title %></h3>
-  <ul>
     <% @question.each do |question| %>
-    <%= question.content %>
-    <br></br>
-    <% @answer.each do |answer| %>
-    <%= answer.content %> #button something thing
+    Question: <%= question.content %>
+    <% end %>
+    <br><br>
+     Your answer: <% @choice.each do |choice| %>
+    <%= choice.content %>
 
      <% end %>
-  </ul>
 </div>
 
    <!--  <form id = "questionresponse">

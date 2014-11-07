@@ -15,7 +15,6 @@ end
 
 post '/surveys/:id/edit' do
   @questions = SurveyQuestion.create(params[:survey_question])
-<<<<<<< HEAD
   p params
   # @survey_question_id = params[:survey_choice][:survey_question_id]
 
@@ -28,10 +27,7 @@ post '/surveys/:id/edit' do
   p "***********"
 
   redirect '/take_survey/:id'
-=======
-  redirect '/'
 
->>>>>>> 93c847142f545e7ab3ed5734941f83123b5e8ca0
 end
 
 post '/surveys' do
@@ -67,7 +63,7 @@ end
 get '/take_survey/:id' do
   @survey = Survey.find(params[:id])
   @question = SurveyQuestion.where(:survey_id => @survey)
-  @answer = SurveyAnwser.where(:question_id => @question)
+  @choice = SurveyChoice.where(:survey_question_id => @question)
 
   erb :take_survey
 end
@@ -76,10 +72,6 @@ end
 get '/create_survey' do
   erb :create_survey
 end
-
-
-
-
 
   # @survey = Survey.new(params[:survey])
   # if @survey.save
