@@ -3,7 +3,7 @@
   <ul>
     <h3>Take a survey!</h3>
     <% @surveys.each do |survey| %>
-      <li><a href="<%= survey.id%>"><%= survey.title%></a></li>
+      <li><a href="/take_survey/<%= survey.id%>"><%= survey.title%></a></li>
     <% end %>
   </ul>
    <form action="/create_survey">
