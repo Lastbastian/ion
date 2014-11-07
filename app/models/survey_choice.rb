@@ -1,4 +1,4 @@
 class SurveyChoice < ActiveRecord::Base
-  has_many :surveyanswers
-  belongs_to :surveyquestions
+  has_many :survey_answers
+  belongs_to :survey_question
 end

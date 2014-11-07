@@ -1,0 +1,12 @@
+<h1> ADD QUESTIONS TO YOUR SURVEY </h1>
+
+<form action="/surveys/:id/edit" method="post">
+  <label for "content"> Content: </label>
+  <input type="text" name="survey_question[content]">
+  <br>
+
+  <input type="hidden" name="survey_question[survey_id]" value="<%=@survey.id%>">
+
+  <input type="submit" name="Submit">
+
+</form>
