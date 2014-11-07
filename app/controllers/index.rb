@@ -1,5 +1,6 @@
 get '/' do
-@survey = Survey.all
+@surveys = Survey.all
+
 erb :index
 end
 
@@ -38,6 +39,13 @@ end
 
 
 
+
+
+
+get '/create_survey' do
+
+erb :create_survey
+end
 
 
 
