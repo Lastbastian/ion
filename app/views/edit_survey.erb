@@ -1,54 +1,28 @@
 <div class = "container">
   <h1> ADD QUESTIONS TO YOUR SURVEY </h1>
 
-<form action="/surveys/:id/edit" method="post">
-  <label for "content"> Question: </label>
-  <input type="text" name="survey_question[content]">
-<br><br>
+  <form id="create_survey" action="/surveys/:id/edit" method="post">
+    <label for "content">Question: </label>
+    <input type="text" name="survey_question[content]">
+    <br><br>
 
-
-  <label for "content"> Option:</label>
-  <input type="text" name="survey_choice1[content]">
-  <br>
+    <label for "content"> Option:</label>
+    <input type="text" name="survey_choice1[content]">
+    <br>
 
     <label for "content"> Option: </label>
-  <input type="text" name="survey_choice2[content]">
-<br>
+    <input type="text" name="survey_choice2[content]">
+    <br>
+
     <label for "content"> Option: </label>
-  <input type="text" name="survey_choice3[content]">
-<br>
-  <label for "content"> Option: </label>
-  <input type="text" name="survey_choice4[content]">
-<br>
-  <input type="hidden" name="survey_question[survey_id]" value="<%=@survey.id%>">
+    <input type="text" name="survey_choice3[content]">
+    <br>
 
-  <input type="submit" name="Submit">
+    <label for "content"> Option: </label>
+    <input type="text" name="survey_choice4[content]">
+    <br>
 
+    <input type="hidden" name="survey_question[survey_id]" value="<%=@survey.id%>">
 
+    <input type="submit" name="Submit">
 </form>
-
-  <div class = "option_holder">
-
-  </div>
-
-
-<div>
-	<p>Create possible responses:</p>
-    <td class ="input_form">
-      <form class = "text_cell" style="display:none" action="/surveys/:id/possible_choices" method="post";>
-
-      	<label>Answer1</label>
-        <input name= "survey_choice[content]" placeholder="content">
-        <!-- <input name= "name" method="Post" action="" placeholder="name"> -->
-        <input type="submit" value="Done">
-
-        <input type="hidden" name="survey_choice[survey_id]" value="<%=@survey.id%>">
-
-        <input type="hidden" name="survey_choice[survey_id]" value="<%=@survey.id%>">
-
-      </form>
-    </td>
-
-    <button id="new_possible_option">Create Possible Option</button>
-
-</div>
