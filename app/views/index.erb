@@ -1,6 +1,15 @@
 <div class="container">
   <h2>GorillaCat Surveys</h2>
+
+  <% if session[:user_id] %>
+    <a href="/logout">Logout</a>
+  <% else %>
+    <a href="/user/sign_up">Sign Up</a>
+    <a href="/user/log_in">Log In</a>
+  <% end %>
+
   <ul>
+
     <h3>Take a survey!</h3>
     <% @surveys.each do |survey| %>
       <li><a href="/take_survey/<%= survey.id%>"><%= survey.title%></a></li>
