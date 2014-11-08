@@ -18,6 +18,9 @@ post '/surveys/:id/edit' do
   p params
   # @survey_question_id = params[:survey_choice][:survey_question_id]
 
+  p "***********"
+
+
   p @survey_question_id = SurveyQuestion.last.id
   SurveyChoice.create(content: params[:survey_choice1][:content], survey_question_id: "#{@survey_question_id}")
   SurveyChoice.create(content: params[:survey_choice2][:content], survey_question_id: "#{@survey_question_id}")
@@ -25,8 +28,6 @@ post '/surveys/:id/edit' do
   SurveyChoice.create(content: params[:survey_choice4][:content], survey_question_id: "#{@survey_question_id}")
 
   p "***********"
-
-  redirect '/take_survey/:id'
 
 end
 
@@ -112,5 +113,3 @@ get '/logout' do
   session[:user_id] = nil
   redirect '/'
 end
-
-
