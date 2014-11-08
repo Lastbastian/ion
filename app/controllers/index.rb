@@ -9,7 +9,6 @@ get '/' do
 end
 
 get '/create_survey' do
-
   erb :create_survey
 end
 
@@ -18,7 +17,7 @@ post '/surveys/:id/edit' do
   p params
   # @survey_question_id = params[:survey_choice][:survey_question_id]
 
-  p @survey_question_id = SurveyQuestion.last.id
+  @survey_question_id = SurveyQuestion.last.id
   SurveyChoice.create(content: params[:survey_choice1][:content], survey_question_id: "#{@survey_question_id}")
   SurveyChoice.create(content: params[:survey_choice2][:content], survey_question_id: "#{@survey_question_id}")
   SurveyChoice.create(content: params[:survey_choice3][:content], survey_question_id: "#{@survey_question_id}")
@@ -63,9 +62,22 @@ end
 get '/take_survey/:id' do
   @survey = Survey.find(params[:id])
   @question = SurveyQuestion.where(:survey_id => @survey)
-  @choice = SurveyChoice.where(:survey_question_id => @question)
+  @choices = SurveyChoice.where(:survey_question_id => @question)
+  @survey_question_id = SurveyQuestion.last.id
 
   erb :take_survey
+end
+
+
+post '/take_survey/:id/question/:question_id' do
+  @survey_question_id = SurveyQuestion.last.id
+
+  p "*********"
+  p params
+  SurveyAnswer.create(content: params[:choice], survey_question_id: "#{@survey_question_id}")
+  p "*********"
+
+  redirect '/'
 end
 
 

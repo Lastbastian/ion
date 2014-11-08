@@ -3,11 +3,19 @@
     <% @question.each do |question| %>
     Question: <%= question.content %>
     <% end %>
-    <br><br>
-     Your answer: <% @choice.each do |choice| %>
-    <%= choice.content %>
 
-     <% end %>
+    <br><br>
+    
+    <p>Your answer: <p>
+     <form action="/take_survey/:id/question/:question_id" method="post">
+    <% @choices.each_with_index do |choice, i| %>
+   
+      <input type="radio" name= "choice" value='<%="#{choice}" %>' > <%=choice.content%>
+      <br>
+    
+    <% end %>
+    <input type="submit" value="Submit">
+    </form>
 </div>
 
    <!--  <form id = "questionresponse">
