@@ -1,5 +1,5 @@
 body {
-  background-color: #3f2860;
+  background-color: #6e6e6e;
 
 }
 
@@ -9,10 +9,33 @@ body {
   width: 600px;
   padding: 0px 20px 20px 20px;
   border: 2px solid;
-  border-color: #ef6d3b;
+  border-color: #f3843e;
   border-radius: 6px;
 }
 
 th {
   text-align: left;
+}
+
+
+form#new_comment {
+  width: 360px;
+  background-color: #777;
+  padding: 6px;
+  border: 1px solid #666;
+  border-radius: 3px;
+}
+
+form#new_comment textarea {
+  width: 100%;
+}
+
+form#new_comment input#authorName {
+  min-width: 50%;
+  max-width: 68%;
+}
+
+form#new_comment input[type="submit"] {
+  min-width: 30%;
+  float: right;
 }

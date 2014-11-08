@@ -1,12 +1,28 @@
-<h1> ADD QUESTIONS TO YOUR SURVEY </h1>
+<div class = "container">
+  <h1> ADD QUESTIONS TO YOUR SURVEY </h1>
 
-<form action="/surveys/:id/edit" method="post">
-  <label for "content"> Content: </label>
-  <input type="text" name="survey_question[content]">
-  <br>
+  <form id="create_survey" action="/surveys/:id/edit" method="post">
+    <label for "content">Question: </label>
+    <input type="text" name="survey_question[content]">
+    <br><br>
 
-  <input type="hidden" name="survey_question[survey_id]" value="<%=@survey.id%>">
+    <label for "content"> Option:</label>
+    <input type="text" name="survey_choice1[content]">
+    <br>
 
-  <input type="submit" name="Submit">
+    <label for "content"> Option: </label>
+    <input type="text" name="survey_choice2[content]">
+    <br>
 
+    <label for "content"> Option: </label>
+    <input type="text" name="survey_choice3[content]">
+    <br>
+
+    <label for "content"> Option: </label>
+    <input type="text" name="survey_choice4[content]">
+    <br>
+
+    <input type="hidden" name="survey_question[survey_id]" value="<%=@survey.id%>">
+
+    <input type="submit" name="Submit">
 </form>

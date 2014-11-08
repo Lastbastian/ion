@@ -1,0 +1,16 @@
+<div class="container">
+    <h3><%= @survey.title %></h3>
+    <% @question.each do |question| %>
+    Question: <%= question.content %>
+    <% end %>
+    <br><br>
+     Your answer: <% @choice.each do |choice| %>
+    <%= choice.content %>
+
+     <% end %>
+</div>
+
+   <!--  <form id = "questionresponse">
+    <label for "questionanswer">Response: </label>
+    <textarea name= "questionanswer" rows="2" cols="50" placeholder = "Input your answer here"></textarea>
+    </form> -->
