@@ -1,22 +1,13 @@
 <div class="container">
-  <ul>
-    <h3>Survey Results:</h3>
-    <% @survey_results.each do |question| %>
-      <li><%= question.title%><br>
-        <% @survey_answer.each do |answer| %>
-        <li><%= choice_result</li><br>
-      </li>
-
+<h3>Results for <%= @survey.title %>:</h3>
+ <% @question.each do |question| %>
+    Question:<br><%= question.content %>
     <% end %>
-  </ul>
-
+    <br><br>
+    Possible choices:<br><% @choice.each do |choice| %>
+    <%= choice.content %><br>
+    <% end %>
+    <br><br>
+    User answers:
 
 </div>
-
-<!-- PSEUDEO
-
-get survey_id
-
-display each questions for that survey based on survey_id
-
-display each answer for that question based on question_id -->

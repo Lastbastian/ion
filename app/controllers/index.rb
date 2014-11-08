@@ -33,6 +33,9 @@ end
 get '/surveys/:id/result' do
   @result = Survey.find(params[:id])
   @answer = SurveyAnswer.where(:question_id, params[:survey_question])
+  @survey = Survey.find(params[:id])
+  @question = SurveyQuestion.where(:survey_id => @survey)
+  @choice = SurveyChoice.where(:survey_question_id => @question)
   erb :results_survey
 end
 
@@ -40,6 +43,7 @@ get '/take_survey/:id' do
   @survey = Survey.find(params[:id])
   @question = SurveyQuestion.where(:survey_id => @survey)
   @choice = SurveyChoice.where(:survey_question_id => @question)
+  @answer = SurveyAnswer.where(:surveyquestion_id => @question)
   erb :take_survey
 end
 
